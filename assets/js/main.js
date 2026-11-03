@@ -37,4 +37,8 @@
         }).catch(function(){s.textContent='Sorry, something went wrong. Please call 480-988-5066.'});}
     });
   });
+  // 2026 Fall Classic car show pop-up: only fetched before the show ends (Sat Nov 7 2026, 1 PM Arizona)
+  try{var me=document.currentScript||document.querySelector('script[src$="main.js"]');
+    var base=me?me.src.replace(/js\/main\.js(\?.*)?$/,''):'assets/';window.STHR_ASSETS=base;
+    if(Date.now()<Date.UTC(2026,10,7,20,0,0)||/[?&]carshow=1\b/.test(location.search)){var cs=document.createElement('script');cs.src=base+'js/carshow.js';cs.async=true;document.head.appendChild(cs);}}catch(e){}
 })();

@@ -1,0 +1,65 @@
+/* 2026 Fall Classic Car Show pop-up (loaded only before the event ends) */
+.cs-backdrop{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:1rem;background:rgba(6,2,3,.78);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);opacity:0;transition:opacity .25s ease}
+.cs-backdrop.open{opacity:1}
+.cs-modal{position:relative;width:min(900px,100%);max-height:calc(100vh - 2rem);max-height:calc(100dvh - 2rem);overflow:auto;overscroll-behavior:contain;display:grid;grid-template-columns:5fr 6fr;border-radius:18px;color:#fff;
+  background:radial-gradient(120% 90% at 100% 0%,#8a1a1f 0%,rgba(138,26,31,0) 60%),linear-gradient(160deg,#5c0f16 0%,#3a080d 55%,#1d0407 100%);
+  border:1px solid rgba(247,162,27,.35);box-shadow:0 30px 80px rgba(0,0,0,.6),inset 0 0 0 1px rgba(255,255,255,.04);transform:translateY(14px) scale(.98);transition:transform .3s ease}
+.cs-backdrop.open .cs-modal{transform:none}
+.cs-photos{display:grid;grid-template-rows:1fr auto;gap:6px;padding:6px;min-height:100%}
+.cs-photos img{width:100%;height:100%;object-fit:cover;border-radius:12px}
+.cs-photos .cs-main{min-height:240px}
+.cs-photos .cs-row{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.cs-photos .cs-row img{aspect-ratio:3/2;height:auto}
+.cs-body{padding:2rem 2rem 1.6rem;display:flex;flex-direction:column}
+.cs-kicker{font:700 .78rem/1 var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--amber);margin:0 0 .5rem}
+.cs-title{margin:0 0 1rem;font-family:var(--display);font-weight:400;line-height:.9;letter-spacing:.02em}
+.cs-title .yr{display:block;font-size:1.5rem;color:#fff;letter-spacing:.12em}
+.cs-title .script{display:block;font-family:"Yellowtail","Brush Script MT","Segoe Script",cursive;font-size:clamp(3.1rem,7vw,4.4rem);line-height:1;letter-spacing:0;padding:.05em .1em .1em 0;background:linear-gradient(180deg,#ffb347 0%,#f26a1b 70%,#e2461b 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 2px 0 rgba(0,0,0,.35))}
+.cs-title .cs{display:block;font-size:2rem;letter-spacing:.14em;color:#fff}
+.cs-when{display:flex;gap:1rem;align-items:center;margin:0 0 .9rem}
+.cs-date{flex:none;width:76px;text-align:center;border-radius:12px;overflow:hidden;background:#fff;color:#1d0407;box-shadow:0 6px 18px rgba(0,0,0,.35)}
+.cs-date .m{display:block;background:var(--grad);color:#fff;font:800 .72rem/1 var(--body);letter-spacing:.16em;padding:.35rem 0}
+.cs-date .d{display:block;font:400 2.5rem/1 var(--display);padding:.2rem 0 .05rem}
+.cs-date .w{display:block;font:700 .62rem/1 var(--body);letter-spacing:.14em;padding-bottom:.4rem;color:#7a1a1f}
+.cs-when p{margin:0;font-weight:800;font-size:1.05rem;line-height:1.35}
+.cs-when p span{display:block;color:var(--amber);font-size:1.25rem}
+.cs-addr{display:flex;gap:.5rem;align-items:flex-start;color:#fff;font-weight:600;text-decoration:none;margin:0 0 1rem;line-height:1.4}
+.cs-addr svg{flex:none;width:18px;height:18px;margin-top:.12rem;fill:var(--orange)}
+.cs-addr:hover{color:var(--amber)}
+.cs-addr u{text-decoration-color:rgba(247,162,27,.6);text-underline-offset:3px}
+.cs-types{margin:0 0 .7rem;font:400 1.55rem/1 var(--display);letter-spacing:.08em;color:var(--amber)}
+.cs-perks{list-style:none;margin:0 0 1rem;padding:0;display:flex;flex-wrap:wrap;gap:.4rem}
+.cs-perks li{font:800 .78rem/1 var(--body);letter-spacing:.12em;text-transform:uppercase;padding:.5rem .75rem;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16)}
+.cs-reg{margin:0 0 1.2rem;padding:.75rem .9rem;border:2px solid var(--orange);border-radius:12px;background:rgba(0,0,0,.22);font-size:.92rem;line-height:1.45}
+.cs-reg b{display:block;font-size:.74rem;letter-spacing:.18em;color:var(--amber);margin-bottom:.15rem}
+.cs-actions{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin-top:auto}
+.cs-actions .btn{padding:.75rem 1.2rem}
+.cs-actions .cs-later{background:none;border:0;color:rgba(255,255,255,.7);font:600 .85rem var(--body);text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:.5rem;margin-left:auto}
+.cs-actions .cs-later:hover{color:#fff}
+.cs-close{position:absolute;top:.7rem;right:.7rem;z-index:2;width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(0,0,0,.55);color:#fff;font-size:1.6rem;line-height:1;cursor:pointer;display:grid;place-items:center}
+.cs-close:hover{background:#000;border-color:var(--amber)}
+.cs-host{margin:.9rem 0 0;font-size:.75rem;color:rgba(255,255,255,.6)}
+@media (max-width:760px){
+  .cs-backdrop{padding:.6rem;align-items:flex-start}
+  .cs-modal{grid-template-columns:1fr;max-height:calc(100vh - 1.2rem);max-height:calc(100dvh - 1.2rem);border-radius:16px}
+  .cs-photos{display:block;padding:5px 5px 0}
+  .cs-photos .cs-main{min-height:0;height:150px;border-radius:12px 12px 8px 8px}
+  .cs-photos .cs-row{display:none}
+  .cs-body{padding:1rem 1.15rem 1.1rem}
+  .cs-kicker{font-size:.66rem;letter-spacing:.12em}
+  .cs-title{margin-bottom:.7rem}
+  .cs-title .yr{font-size:1.2rem}
+  .cs-title .script{font-size:3rem}
+  .cs-title .cs{font-size:1.6rem}
+  .cs-when{margin-bottom:.7rem}
+  .cs-date{width:64px}.cs-date .d{font-size:2.1rem}
+  .cs-addr{font-size:.92rem;margin-bottom:.7rem}
+  .cs-types{font-size:1.35rem;margin-bottom:.55rem}
+  .cs-perks{margin-bottom:.75rem}.cs-perks li{font-size:.7rem;padding:.42rem .6rem}
+  .cs-reg{font-size:.86rem;margin-bottom:.9rem;padding:.6rem .75rem}
+  .cs-actions .btn{padding:.7rem 1rem;font-size:.82rem}
+  .cs-host{margin-top:.6rem}
+}
+@media (max-height:640px) and (min-width:761px){.cs-backdrop{align-items:flex-start}}
+@media (prefers-reduced-motion:reduce){.cs-backdrop,.cs-modal{transition:none}}
+.cs-modal:focus{outline:none}
